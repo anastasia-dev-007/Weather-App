@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './WeatherApp.css';
 import '../Assets/search.png';
 
@@ -12,21 +12,54 @@ import wind_icon from '../Assets/wind.png'
 import humidity_icon from '../Assets/humidity.png'
 
 const WeatherApp = () => {
+    const [inputLocation, setInputLocation] = useState('');
+
+    const handleOnInput = (event) => {
+        const value = event.target.value;
+        setInputLocation(value);
+        console.log(value);
+    }
+
+    const endpoint = 'https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=0983b2f9cf98d7517e82a072b6c96ae6';
+
+    const fetchData = async () => {
+        try {
+
+            const response = await fetch(endpoint);
+            const data = await response.json();
+            
+                console.log(data);
+            } catch(error) {
+                console.log(error);
+        }
+    }
+
+    fetchData();
+
+
+    const handleSearch = () => {
+        //aici va fi API care se va transmite la onClick la button
+    }
+
+
 
     return (
         <div>
             <div className='container'>
                 <div className="top-bar">
-                    <input type="text" className="cityInput" placeholder='Search...' />
-                    <div className="search-icon">
+                    <input type="text"
+                        className="cityInput"
+                        placeholder='Search...'
+                        onInput={handleOnInput} />
+                    <button className="search-icon" onClick={handleSearch}>
                         <img src={search_icon} alt="" />
-                    </div>
+                    </button>
                 </div>
 
                 <div className="weather-image">
                     <img src={drizzle_icon} alt="" />
                 </div>
-                <div className="weather-temp">24°C</div>
+                <div className="weather-temp">24 °C</div>
                 <div className="weather-location">London</div>
 
                 <div className="data-container">
