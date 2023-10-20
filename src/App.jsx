@@ -6,15 +6,15 @@ import './assets/search.png';
 import search_icon from './assets/search.png';
 import wind_icon from './assets/wind.png';
 import humidity_icon from './assets/humidity.png';
-import icon01 from './assets/01.png';
-import icon02 from './assets/02.png';
-import icon03 from './assets/03.png';
-import icon04 from './assets/04.png';
-import icon09 from './assets/09.png';
-import icon10 from './assets/10.png';
-import icon11 from './assets/11.png';
-import icon13 from './assets/13.png';
-import icon50 from './assets/50.png';
+import icon01 from './assets/icon01.png';
+import icon02 from './assets/icon02.png';
+import icon03 from './assets/icon03.png';
+import icon04 from './assets/icon04.png';
+import icon09 from './assets/icon09.png';
+import icon10 from './assets/icon10.png';
+import icon11 from './assets/icon11.png';
+import icon13 from './assets/icon13.png';
+import icon50 from './assets/icon50.png';
 
 
 const App = () => {
