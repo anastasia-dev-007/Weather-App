@@ -43,6 +43,8 @@ const App = () => {
 
       //setam aici valoarea care am scos-o din API si acum deja valorile sunt transpuse in weatherData si putem sa le afisam unde dorim
       setWeatherData(data);
+
+      setInputLocation(''); // reset input bar
     } catch (error) {
       console.log(error);
     }
