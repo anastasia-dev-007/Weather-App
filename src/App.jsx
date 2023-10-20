@@ -69,7 +69,9 @@ const App = () => {
   }, []);
 
   const weatherIcon = () => {
-    const weatherCode = weatherData.weather[0].icon;
+    //"if" checks if weatherData.weather is defined before trying to access its properties.
+   if (weatherData.weather) {
+      const weatherCode = weatherData.weather[0].icon;
     if (weatherCode === '01d' || weatherCode === '01n') {
       return icon01;
     } else if (weatherCode === '02d' || weatherCode === '02n') {
@@ -91,7 +93,7 @@ const App = () => {
     } else {
       // Handle unrecognized weather codes by returning a default image source
       return 'Unrecognized weather. Review available assets and add proper icon!';
-    }
+    }};
   };
 
   return (
@@ -101,6 +103,7 @@ const App = () => {
           <input type="text"
             className="cityInput"
             placeholder='Search...'
+            value={inputLocation}//now value will be transposed back in HTML
             onChange={handleOnChange} />
           <button className="search-icon" onClick={handleSearch}>
             <img src={search_icon} alt="" />
@@ -108,7 +111,7 @@ const App = () => {
         </div>
 
         <div className="weather-image">
-          <img src={weatherIcon} alt="" />
+          <img src={weatherIcon()} alt="" />
         </div>
 
         {/* below we check if weatherData.main exists before rendering the elements that depend on it. This will prevent the error from occurring when weatherData is initially undefined. Otherwise we get an error because initially weather data in useState is empty(undefined) */}
